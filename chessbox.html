@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1e1e2f, #3b3b5c);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: #ffffff;
+    margin-bottom: 25px;
+    letter-spacing: 3px;
+}
+
+/* Board container */
+.board {
+    width: 90vmin;
+    max-width: 600px;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+    border: 10px solid #222;
+    background: #222;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+/* Each row */
+.board > div {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+}
+
+/* All squares */
+.board > div > div {
+    background: #f0d9b5;
+}
+
+/* Alternate color pattern */
+.board > div:nth-child(odd) > div:nth-child(even),
+.board > div:nth-child(even) > div:nth-child(odd) {
+    background: #b58863;
+}
+
+/* Hover effect */
+.board > div > div:hover {
+    cursor: pointer;
+    box-shadow: inset 0 0 0 3px rgba(0,0,0,0.4);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    h1 {
+        font-size: 20px;
+    }
+    .board {
+        width: 95vmin;
+        border-width: 6px;
+    }
+}
+/* Chess pieces */
+.board > div:first-child > div::before,
+.board > div:nth-child(2) > div::before,
+.board > div:nth-child(9) > div::before,
+.board > div:nth-child(10) > div::before {
+    font-size: clamp(22px, 5vmin, 42px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Top side (Black) */
+.board > div:first-child > div:nth-child(1)::before { content: "♜"; }
+.board > div:first-child > div:nth-child(2)::before { content: "♞"; }
+.board > div:first-child > div:nth-child(3)::before { content: "♝"; }
+.board > div:first-child > div:nth-child(4)::before { content: "♛"; }
+.board > div:first-child > div:nth-child(5)::before { content: "♚"; }
+.board > div:first-child > div:nth-child(6)::before { content: "♝"; }
+.board > div:first-child > div:nth-child(7)::before { content: "♞"; }
+.board > div:first-child > div:nth-child(8)::before { content: "♜"; }
+.board > div:first-child > div:nth-child(9)::before { content: "♜"; }
+.board > div:first-child > div:nth-child(10)::before { content: "♜"; }
+
+/* Black pawns */
+.board > div:nth-child(2) > div::before {
+    content: "♟";
+}
+
+/* White pawns */
+.board > div:nth-child(9) > div::before {
+    content: "♙";
+}
+
+/* Bottom side (White) */
+.board > div:nth-child(10) > div:nth-child(1)::before { content: "♖"; }
+.board > div:nth-child(10) > div:nth-child(2)::before { content: "♘"; }
+.board > div:nth-child(10) > div:nth-child(3)::before { content: "♗"; }
+.board > div:nth-child(10) > div:nth-child(4)::before { content: "♕"; }
+.board > div:nth-child(10) > div:nth-child(5)::before { content: "♔"; }
+.board > div:nth-child(10) > div:nth-child(6)::before { content: "♗"; }
+.board > div:nth-child(10) > div:nth-child(7)::before { content: "♘"; }
+.board > div:nth-child(10) > div:nth-child(8)::before { content: "♖"; }
+.board > div:nth-child(10) > div:nth-child(9)::before { content: "♖"; }
+.board > div:nth-child(10) > div:nth-child(10)::before { content: "♖"; }
+    </style>
+</head>
+<body>
+    <h1>CHESS BOX</h1>
+    <div class="board">
+   <div class="st">
+    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+   </div>
+    <div class="nd">
+    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+   </div>
+   <div class="rd">
+    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+   </div>
+   <div class="th">
+    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+   </div>
+   <div class="fi">
+    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+   </div>
+   <div class="si">
+    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+   </div>
+   <div class="se">
+    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+   </div>
+   <div class="eig">
+    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+   </div>
+   <div class="ni">
+    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+   </div>
+   <div class="ten">
+    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+   </div>
+   </div>
+</body>
+</html>
